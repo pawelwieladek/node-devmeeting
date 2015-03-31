@@ -23,12 +23,16 @@ module.exports = function(app) {
       });
   });
 
-  app.get('/chat', function(req, res) {
-    if (!req.user) {
+  app.get('/chat', function(req, res, next) {
+    if(!req.user) {
       res.sendStatus(403);
     }
+    else {
+      next();
+    }
+  }, function(req, res) {
     res.render('chat', {
-      user: req.user.username
+      user: req.user
     });
   });
 };
