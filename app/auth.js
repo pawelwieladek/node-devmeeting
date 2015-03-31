@@ -11,7 +11,7 @@ passport.deserializeUser(function(user, done) {
 });
 
 passport.use(new FacebookStrategy({
-    clientID: config.clientSecret,
+    clientID: config.clientID,
     clientSecret: config.clientSecret,
     callbackURL: config.callbackURL
   },
