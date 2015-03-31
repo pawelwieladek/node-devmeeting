@@ -1,0 +1,17 @@
+html
+  head
+    link(rel='stylesheet' href='styles.css')
+  body
+    h1 #{greeting}
+    div
+      a(href='login') Log In
+    div
+      a(href='logout') Log Out
+    h2 Repos
+    ul
+      each repo in repos
+        li #{repo}
+    h2 Followers
+    ul
+      each user in followers
+        li #{user}
