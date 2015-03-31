@@ -24,6 +24,11 @@ module.exports = function(app) {
   });
 
   app.get('/chat', function(req, res) {
-    res.render('chat');
+    if (!req.user) {
+      res.sendStatus(403);
+    }
+    res.render('chat', {
+      user: req.user.username
+    });
   });
 };
